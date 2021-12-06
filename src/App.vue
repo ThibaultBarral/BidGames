@@ -1,28 +1,49 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="app">
+    <Header />
+    <Div Id="Nav">
+      <router-link v-if="authenticated" to="/login" v-on:click.native="Logout()" replace>Logout</router-link>
+    </Div>
+    <router-view @Authenticated="setauthenticated" />
+    <Footer />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from "./components/Header";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Header
+  },
+  data(){
+    return{
+      authenticated:false,
+      mockAccount:{
+        username:"Bidgames",
+        password:"password"
+      }
+    }
+  },
+  Mounted() {
+    if(!this.authenticated) {
+      this.$router.replace({ name: "Login" });
+    }
+  },
+  methods: {
+    setauthenticated(Status) {
+      this.authenticated = Status;
+    },
+    Logout() {
+      this.authenticated = false;
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import url(assets/css/responsive.css);
+@import url(assets/css/reboot.css);
+
 </style>
