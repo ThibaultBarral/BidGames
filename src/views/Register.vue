@@ -1,6 +1,9 @@
 <template>
-  <div id="login">
-    <div class="xLarge-12 large-12 medium-12 small-12 xSmall-12 form-register">
+  <div id="register">
+    <div class="xLarge-6 large-6 medium-12 small-12 xSmall-12 img-register">
+      <img src="../assets/media/images/undraw_my_documents_re_13dc.png">
+    </div>
+    <div class="xLarge-6 large-6 medium-12 small-12 xSmall-12 form-register">
       <div>
         <h1>BidGames</h1>
         <h2>Créer un compte</h2>
@@ -47,9 +50,21 @@ export default {
 </script>
 
 <style scoped>
-#login {
+#register {
   display: flex;
   height: 100vh;
+}
+
+.img-register {
+  position: relative;
+}
+
+.img-register img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translateY(-50%) translateX(-50%);
 }
 
 .form-register {
