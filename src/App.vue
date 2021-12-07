@@ -1,7 +1,13 @@
 <template>
   <div class="app">
-    <router-link v-if="authenticated" to="/login" v-on:click.native="Logout()" replace>Logout</router-link>
-    <Header />
+    <router-link
+      v-if="authenticated"
+      to="/login"
+      v-on:click.native="Logout()"
+      replace
+      >Logout</router-link
+    >
+    <Header v-show="$route.path !== '/login' && $route.path !== '/register'" />
     <router-view @Authenticated="setauthenticated" />
     <Footer />
   </div>
@@ -11,21 +17,21 @@
 import Header from "./components/Header";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Header
+    Header,
   },
-  data(){
-    return{
-      authenticated:false,
-      mockAccount:{
-        username:"Bidgames",
-        password:"password"
-      }
-    }
+  data() {
+    return {
+      authenticated: false,
+      mockAccount: {
+        username: "Bidgames",
+        password: "password",
+      },
+    };
   },
   Mounted() {
-    if(!this.authenticated) {
+    if (!this.authenticated) {
       this.$router.replace({ name: "Login" });
     }
   },
@@ -35,13 +41,12 @@ export default {
     },
     Logout() {
       this.authenticated = false;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style>
 @import url(assets/css/responsive.css);
 @import url(assets/css/reboot.css);
-
 </style>
