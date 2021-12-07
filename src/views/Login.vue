@@ -1,7 +1,7 @@
 <template>
   <div id="login">
     <div class="xLarge-6 large-6 medium-12 small-12 xSmall-12 img-login">
-      <img src="../assets/media/images/undraw_my_documents_re_13dc.png">
+      <img src="../assets/media/images/undraw_my_documents_re_13dc.png" />
     </div>
     <div class="xLarge-6 large-6 medium-12 small-12 xSmall-12 form-login">
       <div>
@@ -10,8 +10,18 @@
       </div>
       <div>
         <div>
-          <input type="text" name="username" v-model="input.username" placeholder="username">
-          <input type="password" name="password" v-model="input.password" placeholder="Mot de passe">
+          <input
+            type="text"
+            name="email"
+            v-model="input.email"
+            placeholder="email"
+          />
+          <input
+            type="password"
+            name="password"
+            v-model="input.password"
+            placeholder="Mot de passe"
+          />
         </div>
         <button type="Button" v-on:click="Login()">Se connecter</button>
       </div>
@@ -20,31 +30,53 @@
 </template>
 
 <script>
+import router from "@/router";
+
 export default {
-  name: 'Login',
+  name: "Login",
   data() {
     return {
       input: {
-        username:"",
-        password:"",
-      }
-    }
+        email: "",
+        password: "",
+      },
+    };
   },
   methods: {
     Login() {
-      if(this.input.username !== "" && this.input.password !== "") {
-        if(this.input.username === this.$parent.mockAccount.username && this.input.password === this.$parent.mockAccount.password) {
-          this.$emit("Authenticated", true);
-          this.$router.replace({ name: "Secure" });
-        } else {
-          console.log("The Username And / Or Password Is Incorrect");
-        }
+      if (this.input.email !== "" && this.input.password !== "") {
+        fetch("http://localhost:3000/auth/login", {
+          method: "post",
+          credentials: "same-origin",
+          headers: {
+            Accept: "application/json, text/plain, */*",
+            "Content-Type": "application/json",
+            "cache-control": "no-cache",
+            "app-token": "devtoken",
+          },
+          body: JSON.stringify({
+            email: this.input.email,
+            password: this.input.password,
+          }),
+        })
+          .then((response) => {
+            return response.text();
+          })
+          .then((data) => {
+            if (Object.keys(JSON.parse(data)).includes("error")) {
+              console.log(JSON.parse(data));
+            } else {
+              localStorage.token = JSON.parse(data)["token"];
+              // store.commit("setLogin");
+              router.push({ path: "/" });
+            }
+          });
       } else {
         console.log("A Username And Password Must Be Present");
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -80,13 +112,14 @@ export default {
   align-items: center;
 }
 
-.form-login h1, h2 {
-  color: #E94057;
+.form-login h1,
+h2 {
+  color: #e94057;
   margin: 10px 0;
 }
 
 .form-login input {
-  background-color: #E6E6E6;
+  background-color: #e6e6e6;
   border-radius: 10px;
   border: none;
   width: 50%;
