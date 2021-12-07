@@ -2,10 +2,7 @@
   <div id="header">
     <img src="../assets/media/images/header.png">
     <h1>BidGames</h1>
-    <div>
-      <i class="fas fa-search"></i>
-      Recherche
-    </div>
+      <input type="text" v-model="search" placeholder="Recherche" />
   </div>
 </template>
 
@@ -38,9 +35,10 @@ export default {
   width: 100%;
   filter: brightness(75%);
 }
-#header div {
+#header input {
   bottom: -10px;
   width: 40%;
+  border: none;
   padding: 20px;
   background-color: white;
   border-radius: 25px;
@@ -50,7 +48,7 @@ export default {
   box-shadow: 0px 0px 60px rgb(0 0 0 / 8%);
 }
 
-#header > div > i {
+#header > i {
   margin-right: 20px;
 }
 
