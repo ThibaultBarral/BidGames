@@ -33,6 +33,9 @@
                 </div>
                 <i class="fas fa-heart"></i>
               </div>
+              <div class="footer-article">
+                <button>Faire une offre</button>
+              </div>
             </div>
           </div>
         </div>
@@ -144,17 +147,21 @@ export default {
   font-weight: bold;
 }
 
-a {
+button {
   background: linear-gradient(#892886 0%, #f27123 100%);
   border: none;
   color: white;
   border-radius: 10px;
   padding: 10px 15px;
-  font-size: 13px;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
   font-weight: bold;
 }
 
 .footer-article {
+  margin-top: 10px;
   position: relative;
   display: flex;
   justify-content: space-between;
