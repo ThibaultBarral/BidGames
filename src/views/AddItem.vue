@@ -3,16 +3,17 @@
     <h1>Ajouter un Article</h1>
     <div class="xLarge-12 large-12 medium-12 small-12 xSmall-12">
       <div class="xLarge-6 large-6 medium-12 small-12 xSmall-12 form-article">
-        <input type="text" name="username" placeholder="username">
-        <input type="text" name="description" placeholder="description">
-        <input type="text" name="min-age" placeholder="age minimum">
+        <input type="text" name="name" placeholder="Nom">
+        <textarea name="description" class="textarea" placeholder="Description"></textarea>
         <input type="text" name="price" placeholder="prix">
         <div>
           Virtual
-          <input type="checkbox" id="non" value="Non">
-          <label for="non">Non</label>
-          <input type="checkbox" id="oui" value="Oui">
-          <label for="oui">Oui</label>
+          <div>
+            <input type="checkbox" id="non" value="Non">
+            <label for="non">Non</label>
+            <input type="checkbox" id="oui" value="Oui">
+            <label for="oui">Oui</label>
+          </div>
         </div>
         <input type="text" name="estimation" placeholder="estimation">
       </div>
@@ -32,13 +33,11 @@ export default {
 <style scoped>
 #additem {
   display: flex;
-  min-height: 100vh;
   flex-direction: column;
   align-items: center;
 }
 
 #additem > h1 {
-  margin: 20px 10px;
 }
 
 #oui, #non {
@@ -50,10 +49,16 @@ export default {
   margin: 0 10px;
 }
 
-.form-article input, #additem > div > div.xLarge-6.large-6.medium-12.small-12.xSmall-12.form-article > div {
+#additem > div > div.xLarge-6.large-6.medium-12.small-12.xSmall-12.form-article > div {
+  position: relative;
+}
+
+.form-article input, .form-article textarea, #additem > div > div.xLarge-6.large-6.medium-12.small-12.xSmall-12.form-article > div {
   background-color: #E6E6E6;
   border-radius: 10px;
   border: none;
+  font-weight: bolder;
+  letter-spacing: 0.05em;
   width: 50%;
   padding: 25px;
   display: flex;
@@ -62,7 +67,13 @@ export default {
   text-transform: uppercase;
 }
 
-.form-article input::placeholder, #additem > div > div.xLarge-6.large-6.medium-12.small-12.xSmall-12.form-article > div {
+#additem > div > div.xLarge-6.large-6.medium-12.small-12.xSmall-12.form-article > div > div {
+  position: absolute;
+  right: 10px;
+  display: flex;
+}
+
+.form-article input::placeholder, .form-article textarea::placeholder, #additem > div > div.xLarge-6.large-6.medium-12.small-12.xSmall-12.form-article > div {
   color: white;
 }
 

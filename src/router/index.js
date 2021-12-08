@@ -35,6 +35,24 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/AddItem.vue"),
   },
+  {
+    path: "/favoris",
+    name: "Favoris",
+    component: () =>
+        import(/* webpackChunkName: "about" */ "../views/Favoris.vue"),
+  },
+  {
+    path: "/makebid",
+    name: "MakeBid",
+    component: () =>
+        import(/* webpackChunkName: "about" */ "../views/MakeBid.vue"),
+  },
+  {
+    path: "/article",
+    name: "Article",
+    component: () =>
+        import(/* webpackChunkName: "about" */ "../views/Article.vue"),
+  },
 ];
 
 const router = new VueRouter({
