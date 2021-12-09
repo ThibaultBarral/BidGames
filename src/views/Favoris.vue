@@ -52,7 +52,7 @@ export default {
   width: calc(100% - 40px);
   border-radius: 25px;
   background: #fff;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.16);
+  /*box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.16);*/
 }
 
 .img-article {

@@ -49,4 +49,8 @@ export default {
 <style>
 @import url(assets/css/responsive.css);
 @import url(assets/css/reboot.css);
+.app {
+  background: #f8f8f8;
+}
+
 </style>

@@ -38,6 +38,11 @@
               </div>
             </div>
           </div>
+          <div class="xLarge-12 large-12 medium-12 small-12 xSmall-12">
+            <p style="font-size: 17px; font-weight: bold; margin-bottom: 4px!important;">Dernière Offre</p>
+            <div style="border: 1px solid black; width: 20%"></div>
+            <p style="margin-top: 20px; line-height: 1.3vw; font-weight: bold; font-size: 30px">155 €</p>
+          </div>
         </div>
       </div>
     </div>
@@ -64,7 +69,7 @@ export default {
   width: calc(100% - 40px);
   border-radius: 25px;
   background: #fff;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.16);
+  /*box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.16);*/
 }
 
 .dot {
