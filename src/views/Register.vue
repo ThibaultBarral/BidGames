@@ -12,7 +12,7 @@
         <div>
           <input type="text" name="lastname" v-model="input.password" placeholder="Nom">
           <input type="text" name="firstname" v-model="input.username" placeholder="Prénom">
-          <input type="text" name="username" v-model="input.username" placeholder="username">
+          <input type="email" name="email" v-model="input.email" placeholder="Email">
           <input type="password" name="password" v-model="input.password" placeholder="Mot de passe">
         </div>
         <button type="Button" v-on:click="Login()">Envoyer</button>

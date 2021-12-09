@@ -1,5 +1,6 @@
 <template>
-  <div id="home">
+  <div id="favoris">
+    <h1 style="display: flex; justify-content: center; margin: 0 0 30px">Mes Articles Favoris</h1>
     <div class="xLarge-12 large-12 medium-12 small-12 xSmall-12" style="display: flex; flex-wrap: wrap">
       <div class="xLarge-4 large-4 medium-12 small-12 xSmall-12" style="display: flex; margin: 20px; width: calc(33.33% - 40px);">
         <div class="article">
@@ -32,12 +33,14 @@
 
 <script>
 export default {
-  name: 'Home'
+  name: 'Favoris'
 }
 </script>
 
 <style scoped>
-#home {
+#favoris {
+  display: flex;
+  flex-direction: column;
   display: flex;
   margin: 0 15vw 0 15vw;
 }
@@ -121,7 +124,7 @@ a {
   margin: 0 5px 10px 0;
 }
 
-#home > div {
+#favoris > div {
   border-radius: 15px;
   background: #f8f8f8;
   padding: 20px;
